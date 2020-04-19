@@ -7,13 +7,13 @@ power_consumption$Date <- as.Date(power_consumption$Date, "%d/%m/%Y")
 data_subsetted <- subset(power_consumption, 
                          (Date == as.Date("2007-02-02")) | (Date == as.Date("2007-02-01")))
 
-png(file = "plot3.png")
+png(file = "plot3.png", width = 480, height = 480 )
 plot(data_subsetted$Time, data_subsetted$Sub_metering_1, 
      type = "l", ylab = "Energy sub metering", xlab = "", col = "black")
 lines(data_subsetted$Time, data_subsetted$Sub_metering_2, col = "red")
 lines(data_subsetted$Time, data_subsetted$Sub_metering_3, col = "blue")
 legend("topright", col = c("black", "red", "blue"), lty = c(1,1),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-dev.copy(png, file = "plot3.png", width = 480, height = 480 )
+
 dev.off()
 

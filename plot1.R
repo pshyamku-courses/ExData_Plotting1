@@ -5,8 +5,7 @@ power_consumption$Date <- as.Date(power_consumption$Date, "%d/%m/%Y")
 power_consumption$Time <- strptime(power_consumption$Time, format = "%H:%M:%S")
 data_subsetted <- subset(power_consumption, (Date == as.Date("2007-02-02")) | (Date == as.Date("2007-02-01")))
 
-png(file = "plot1.png")
+png(file = "plot1.png", width = 480, height = 480 )
 hist(data_subsetted$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", ylab = "Frequency", main = "Global Active Power")
-dev.copy(png, file = "plot1.png", width = 480, height = 480 )
 dev.off()
 

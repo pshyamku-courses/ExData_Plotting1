@@ -7,7 +7,7 @@ power_consumption$Date <- as.Date(power_consumption$Date, "%d/%m/%Y")
 data_subsetted <- subset(power_consumption, 
                          (Date == as.Date("2007-02-02")) | (Date == as.Date("2007-02-01")))
 
-png(file = "plot4.png")
+png(file = "plot4.png", width = 480, height = 480 )
 par(mfrow = c(2,2))
 plot(data_subsetted$Time, data_subsetted$Global_active_power, 
      type = "l", ylab = "Global Active Power", xlab = "")
@@ -25,5 +25,4 @@ legend("topright", col = c("black", "red", "blue"), lty = c(1,1),
 plot(data_subsetted$Time, data_subsetted$Global_reactive_power, 
      type = "l", ylab = "Global_reactive_power", xlab = "datetime")
 
-dev.copy(png, file = "plot4.png", width = 480, height = 480 )
 dev.off()
